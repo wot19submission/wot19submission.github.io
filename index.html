@@ -105,11 +105,13 @@ body {
 <h2 id="about">About this Study</h2>
 <p style="font-size: 16px">
   <br>
+
   The Web is a tangled mass of interconnected services, where websites import a range of external resources from various third-party domains. However, the latter can further load resources hosted on other domains. For each website, this creates a dependency chain underpinned by a form of implicit trust between the first-party and transitively connected third-parties. The chain can only be loosely controlled as first-party websites often have little, if any, visibility of where these resources are loaded from. 
-  <br><br>
-This study performs a large-scale study of dependency chains in the Web, to find that around 50% of first-party websites render content that they did not directly load.
-Although the majority (84.91%) of websites have short dependency chains (below 3 levels), we find websites with dependency chains exceeding 30.<br><br>
-Using VirusTotal, we show that 1.2% of these third-parties are classified as suspicious --- although seemingly small, this limited set of suspicious third-parties have remarkable reach into the wider ecosystem: 73% of websites under-study load resources from suspicious third-parties at some point, and 78% of the JavaScript implicitly loaded at level 2--from implicitly trusted websites--of the dependency chain belong to suspicious domains. By running sandboxed experiments, we observe a range of activities with the majority of suspicious JavaScript downloading malware. Worryingly, this occurs more prominently amongst implicitly trusted resources, providing little visibility for the first-party website operators. We share our datasets, code to run our experimental testbed and analysis scripts with the wider research community for further studies on the chains of implicit trust in the Web. 
+  This study (dataset is detailed in our <a href="files/wot_www19_submission.pdf"> paper </a>) performs a large-scale study of dependency chains in the Web, to find that around 50% of first-party websites render content that they did not directly load.
+  Although the majority (84.91%) of websites have short dependency chains (below 3 levels), we find websites with dependency chains exceeding 30.
+  Using VirusTotal, we show that 1.2% of these third-parties are classified as suspicious --- although seemingly small, this limited set of suspicious third-parties have remarkable reach into the wider ecosystem.
+By running sandboxed experiments, we observe a range of activities with the majority of suspicious JavaScript downloading malware; worryingly, we find this propensity is greater among implicitly trusted JavaScripts. 
+
 <br><br>
 </p>
 <br>
