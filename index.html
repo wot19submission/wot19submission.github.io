@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Chain of Implicit Trust</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+/* Bootstrap overrides */
+body {
+  /*min-height: 1000px;*/
+  padding-top: 70px;
+}
+
+.navbar-default {
+  height: 65px;
+}
+
+.navbar-default
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 65px;
+  font-size: 18pt;
+}
+
+.navbar-nav > li > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 65px;
+  font-size: 16pt;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<!-- Additional files for the Highslide popup effect -->
+<script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
+<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
+
+
+<script>
+	// Get the CSV and create the chart
+	//$.getJSON('based.json', function (chart) {
+	//	Highcharts.chart('plot', chart);
+	//});
+  $.getJSON('corr.json', function (chart) {
+		Highcharts.chart('plotcorr', chart);
+	});
+  $.getJSON('daytoday.json', function (chart) {
+    Highcharts.chart('plotdaytoday', chart);
+	});
+
+</script>
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <a href="index.html" class="navbar-brand">The Chain of Implicit Trust Study</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav ">
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#download">Downloads</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="#rpartners">Research Partners</a></li>
+              </ul>
+              <!--<ul class="nav navbar-nav navbar-right">
+                  <li class="mylogo"><a><img src="TU_Muenchen_Logo.svg" height=40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="rwth_comsys_bild_rgb.svg" height="40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="Usyd_new_logo.png" height="40px"/></a>&nbsp;</li>
+                  <li class="mylogo"><a><img src="neu.png" height="40px"/></a></li>
+              </ul>-->
+              <a href="https://github.com/nsusenixsubmission/pamintermas.github.io"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me (if you wish) on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png""></a>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+    <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="page-header">
+
+<h2 id="about">About this Study</h2>
+<p style="font-size: 16px">
+  <br>
+  The Web is a tangled mass of interconnected services, where websites import a range of external resources from various third-party domains. However, the latter can further load resources hosted on other domains. For each website, this creates a dependency chain underpinned by a form of implicit trust between the first-party and transitively connected third-parties. The chain can only be loosely controlled as first-party websites often have little, if any, visibility of where these resources are loaded from. 
+  <br><br>
+This study performs a large-scale study of dependency chains in the Web, to find that around 50% of first-party websites render content that they did not directly load.
+Although the majority (84.91%) of websites have short dependency chains (below 3 levels), we find websites with dependency chains exceeding 30.<br><br>
+Using VirusTotal, we show that 1.2% of these third-parties are classified as suspicious --- although seemingly small, this limited set of suspicious third-parties have remarkable reach into the wider ecosystem: 73% of websites under-study load resources from suspicious third-parties at some point, and 78% of the JavaScript implicitly loaded at level 2--from implicitly trusted websites--of the dependency chain belong to suspicious domains. By running sandboxed experiments, we observe a range of activities with the majority of suspicious JavaScript downloading malware. Worryingly, this occurs more prominently amongst implicitly trusted resources, providing little visibility for the first-party website operators. We share our datasets, code to run our experimental testbed and analysis scripts with the wider research community for further studies on the chains of implicit trust in the Web. 
+<br><br>
+</p>
+<br>
+<h2 id="download">Paper and Dataset Download</h2>
+<p style="font-size: 16px">
+Our paper has been submitted (for anonymous reviews) to <a href="https://www2019.thewebconf.org/">The Web Conference (WWW)</a>.<br>
+</p>
+
+
+<p style="font-size: 16px">
+We provide our dataset <a href="https://github.com/wot19submission/wot19submission.github.io">on Github</a>.<br>
+A sample of dataset and scripts used for the publication is hosted at the <a href="https://github.com/wot19submission/wot19submission.github.io"> on Github </a>.<br><br>
+Please contact us on the following email for if you intend to use the dataset and scripts. <br /><br>
+</p>
+
+<h2 id="contact">Contact</h2>
+<p style="font-size: 16px">
+	<b>www19.chainoftrust</b> [at] <b>gmail.com</b>
+</p>
+
+<h2 id="rpartner">Research Partners</h2>
+<p style="font-size: 16px">
+Historical malware dataset for this study is based on
+Anonymous' (name will be updated) <a href="https://github.com/wot19submission/wot19submission.github.io"> AnonymousProject </a> (will be updated).
+
+    </div>  <!-- col -->
+  </div>  <!-- row -->
+
+    </div> <!-- /container -->
+
+</body>
+</html>
