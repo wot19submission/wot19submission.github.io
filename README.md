@@ -1,7 +1,4 @@
-# wot19submission.github.io
-
-
-The Chain of Implicit Trust: An Analysis of the Web Third-party Resources Loading
+# The Chain of Implicit Trust: An Analysis of the Web Third-party Resources Loading
 M. Ikram, R. Masood, G. Tyson, M. Kaafar, N. Loizon,and R.Ensafi
 In: WWW 2019, May 2019 [Weblink: https://wot19submission.github.io/]
 
